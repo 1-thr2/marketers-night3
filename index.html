@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마케터의 밤 - 공동주최 제안</title>
+  <style>
+    /* 1) 리셋 및 기본 스타일 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 2) 컨테이너 */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+
+    /* 3) HERO 섹션: 감성적 넛지 + B2B 협업 유도 */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0c0c0c 10%, #262626 100%);
+      padding: 2rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,255,155,0.1) 10%, transparent 40%);
+      animation: pulse 6s infinite;
+      opacity: 0.5;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #00ff9b;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      color: #ccc;
+      max-width: 800px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero .cta-btn {
+      display: inline-block;
+      background: #00ff9b;
+      color: #0d0d0d;
+      padding: 0.8rem 2.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .hero .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.3);
+    }
+
+    /* 4) WHY 섹션: 짧고 강렬하게 */
+    .why {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .why h2 {
+      font-size: 2rem;
+      color: #00ff9b;
+      margin-bottom: 1.5rem;
+    }
+    .why p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .why-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .why-item {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      border: 1px solid #333;
+      flex: 1 1 280px;
+      min-width: 280px;
+      transition: 0.3s ease;
+    }
+    .why-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.1);
+    }
+    .why-item h3 {
+      color: #00ff9b;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .why-item p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 5) 행사 기획 & 운영 흐름 (간략+술/음식 암시) */
+    .flow {
+      background: #111;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .flow .section-title {
+      font-size: 2rem;
+      color: #00ff9b;
+      margin-bottom: 2rem;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .flow-step {
+      background: #1c1c1c;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #333;
+      transition: 0.3s ease;
+      text-align: left;
+    }
+    .flow-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.1);
+    }
+    .flow-step h4 {
+      color: #00ff9b;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .flow-step p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 6) 데이터 & ROI 섹션 */
+    .data {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .data .section-title {
+      font-size: 2rem;
+      color: #00ff9b;
+      margin-bottom: 2rem;
+    }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .data-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 2rem;
+      border: 1px solid #333;
+      transition: 0.3s ease;
+    }
+    .data-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.1);
+    }
+    .data-card h3 {
+      color: #00ff9b;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .data-card p {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* 7) 추가 혜택 */
+    .extras {
+      background: #0d0d0d;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .extras .section-title {
+      font-size: 2rem;
+      color: #00ff9b;
+      margin-bottom: 2rem;
+    }
+    .extras-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .extra-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      transition: 0.3s ease;
+      flex: 1 1 300px;
+      text-align: left;
+    }
+    .extra-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.1);
+    }
+    .extra-card h4 {
+      color: #00ff9b;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .extra-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* 8) CTA 섹션 */
+    .cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: #1a1a1a;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      color: #00ff9b;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      color: #ccc;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #00ff9b;
+      color: #0d0d0d;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,255,155,0.3);
+    }
+
+    /* 9) 푸터 */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #000;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .why-item { min-width: 100%; }
+      .flow-step { text-align: left; }
+      .data-card { padding: 1rem; }
+      .extra-card { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>“다음 캠페인의 열쇠,<br>이 밤에 있을지도 모릅니다.”</h1>
+    <p>
+      2025년, 이미 150명 이상의 마케터가<br>
+      솔직한 실패담까지 공유하는 이 자리.<br>
+      이제 함께 기획하고, 더 크게 만들어볼까요?
+    </p>
+    <a href="#" class="cta-btn">함께 준비하기</a>
+  </section>
+
+  <!-- WHY (B2B 목적) -->
+  <section class="why">
+    <h2>왜 ‘마케터의 밤’을 함께하나요?</h2>
+    <p>
+      틀에 박힌 행사와 달리,<br>
+      현장의 열기가 술과 음식, 그리고 자유로운 대화 속에서<br>
+      **진짜 협업**으로 이어집니다.
+    </p>
+    <div class="why-items">
+      <div class="why-item">
+        <h3>리얼 비즈니스</h3>
+        <p>70% 이상이 결정권자라<br>행사장에서 바로 프로모션 제안이 오가고,<br>빠른 실행까지 이어집니다.</p>
+      </div>
+      <div class="why-item">
+        <h3>집요한 네트워킹</h3>
+        <p>편하게 한잔 기울이며,<br>남이 말 못 하는 ‘현장 실패담’까지 끌어내<br>업계 인맥을 탄탄히 쌓습니다.</p>
+      </div>
+      <div class="why-item">
+        <h3>검증된 포맷</h3>
+        <p>10회 이상 진행되며<br>참가자 150+가 쌓아올린 노하우!<br>원하시는 주제로 맞춤 기획 가능합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 행사 기획 & 운영 흐름 (술/음식 제공 언급) -->
+  <section class="flow">
+    <h2 class="section-title">어떻게 진행되나요?</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <h4>1. 주제·메시지 합의</h4>
+        <p>함께 다룰 마케팅 이슈, 초청 연사, VIP 리스트 등을 먼저 선정합니다.</p>
+      </div>
+      <div class="flow-step">
+        <h4>2. 프로그램 구성</h4>
+        <p>트렌드 세션, 1:1 네트워킹, 조별 토론 등 다양하게 맞춤 설계합니다.</p>
+      </div>
+      <div class="flow-step">
+        <h4>3. 현장 운영 & 분위기</h4>
+        <p>가벼운 음식·음료로 경계를 허물고,<br>서로의 아이디어를 자유롭게 나누게끔 지원합니다.</p>
+      </div>
+      <div class="flow-step">
+        <h4>4. 후속 보도 & ROI</h4>
+        <p>현장 사진, 인터뷰 기사를 배포해<br>브랜드 인지도와 협업 성과를 극대화합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 데이터 & ROI 섹션 -->
+  <section class="data">
+    <h2 class="section-title">수치가 증명합니다</h2>
+    <div class="data-grid">
+      <div class="data-card">
+        <h3>150+</h3>
+        <p>2025년 한 해<br>누적 참석자 수</p>
+      </div>
+      <div class="data-card">
+        <h3>70%</h3>
+        <p>의사결정자 비중<br>즉석 제안도 OK</p>
+      </div>
+      <div class="data-card">
+        <h3>2~3건</h3>
+        <p>평균 협업 제안<br>행사 후 바로 후속 미팅</p>
+      </div>
+      <div class="data-card">
+        <h3>12%</h3>
+        <p>평균 매출 상승<br>협업 시 누적 ROI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 추가 혜택 섹션 -->
+  <section class="extras">
+    <h2 class="section-title">더 얻을 수 있는 혜택</h2>
+    <div class="extras-grid">
+      <div class="extra-card">
+        <h4>맥스서밋 연사 기회</h4>
+        <p>국내 대형 컨퍼런스 ‘맥스서밋’에<br>우선 연사로 초청돼<br>브랜드를 널리 알릴 수 있습니다.</p>
+      </div>
+      <div class="extra-card">
+        <h4>인사이드 매거진 노출</h4>
+        <p>행사 후기·파트너 인터뷰를<br>매거진에 게재하여<br>실무자들에게 깊이 어필합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>이 밤, 함께 밝혀볼까요?</h2>
+      <p>
+        이제 뻔한 세미나가 아닌,<br>
+        솔직한 인사이트와 새로운 협업이<br>
+        터져 나오는 밤을<br>
+        함께 기획해보세요.
+      </p>
+      <a href="#" class="cta-button">지금 문의하기</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2035 Mobidays. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
